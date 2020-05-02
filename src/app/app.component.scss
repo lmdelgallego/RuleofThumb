@@ -19,12 +19,6 @@ header{
     .nav, .auth, .search, a, mat-icon{
       color: white;
     }
-
-    .nav{
-      &-link{
-        margin: 0px 20px;
-      }
-    }
     .auth{
       margin-right: 20px;
     }
@@ -32,15 +26,24 @@ header{
 }
 
 .nav{
-
+  &-link{
+    margin: 0px 20px;
+    &:first-of-type{
+      margin-left: 0;
+    }
+  }
 }
 
 
 footer{
   font-size: 0.75rem;
   padding: 25px 0px;
-  .nav{
-    flex: 1
+  .menu{
+    align-items: center;
+    .nav{
+      flex: 1;
+      color: black;
+    }
   }
   .socials{
     flex: 1;
