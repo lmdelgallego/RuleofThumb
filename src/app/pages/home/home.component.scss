@@ -1,0 +1,275 @@
+section.main-ruling{
+  background: url('/assets/img/principal-pope.jpg');
+  background-size: cover;
+  background-position: center center;
+  margin-bottom: 30px;
+  padding-top: 110px;
+  position: relative;
+  z-index: 1;
+  .principal{
+    position: relative;
+    margin-bottom: 70px;
+    height: 451px;
+    // &-bg{
+    //   background: url('https://www.weact.org/wp-content/uploads/2015/09/Pope-Francis.jpg');
+    //   background-size: 100% auto;
+    //   background-repeat: no-repeat;
+    //   position: absolute;
+    //   top: 0px;
+    //   right: 0px;
+    //   bottom: 0px;
+    //   left: 0px;
+    //   z-index: 99;
+
+    //   background-position: center -70px;
+    //   filter: blur(10px);
+    // }
+
+    &-content{
+      position: relative;
+      z-index: 100;
+      padding: 35px 20px;
+      background: rgba(34,34,34,0.5);
+      color: white;
+      .sub-title{
+        font-size: 1rem;
+        color: inherit;
+        margin: 0;
+      }
+      .title{
+        margin: 0px 0px 10px;
+        color: inherit;
+        font-size: 60px;
+        line-height: 1em;
+        margin-bottom: 27px;
+        small{
+          color: inherit;
+          font-size: 1rem;
+        }
+      }
+      .message{
+        font-size: 1.3rem;
+        color: inherit;
+        line-height: 1.14;
+        margin-bottom: 25px;
+      }
+      .link{
+        color: inherit;
+        display: block;
+        font-size: 0.87rem;
+        margin-bottom: 30px;
+      }
+      h4{
+        color: inherit;
+        margin: 0;
+      }
+    }
+
+    &-acctions{
+      display: flex;
+      div{
+        flex: 1;
+        padding: 20px;
+        text-align: center;
+        justify-content: center;
+        cursor: pointer;
+        mat-icon{
+          font-size: 30px;
+          width: 1em;
+          height: 1em;
+          color: white;
+          display: inline-block;
+        }
+      }
+      .vote-up{
+        background-color: rgba(var(--color-primmary-rgb), 0.9);
+      }
+      .vote-down{
+        background-color: rgba(var(--color-secondary-rgb), 0.9);
+      }
+    }
+  }
+
+  .closing{
+    display: flex;
+    .label, .value{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .label{
+      position: relative;
+      background-color: rgba(black, 0.1);
+      color: white;
+      font-size: 0.81rem;
+      flex: 1;
+      padding-right: 10px;
+      text-transform: uppercase;
+      &:after {
+        left: 100%;
+        top: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: transparent;
+        border-left-color: rgba(black, 0.15);
+        border-width: 10px;
+        margin-top: -10px;
+      }
+    }
+    .value{
+      background-color: rgba( white, 0.5);
+      flex: 2;
+      font-size: 36px;
+      justify-content: flex-start;
+      padding-left: 20px;
+      span{
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+section.message{
+  font-size: 0.93rem;
+  .message-content{
+    background-color: #ebebeb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 27px;
+    .title{
+      width: 45%;
+      h1, h3 {
+        margin: 0;
+        line-height: 1;
+      }
+    }
+    .actions{
+
+    }
+  }
+}
+
+section.previous-ruling{
+  margin-bottom: 40px;
+  .add-name{
+    background: url('/assets/img/layer-4.jpg');
+    background-position: center center;
+    &-content{
+      display: flex;
+      padding: 10px 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      align-items: center;
+      .message{
+        flex: 1;
+        font-size: 1.875rem;
+        line-height: 1;
+      }
+      .action{
+        color: #333333;
+        font-size: 1.31rem;
+        background: transparent;
+        border: 3px solid #333333;
+        padding: 8px 25px;
+        transition: 300ms all ease-in;
+        cursor: pointer;
+        &:hover{
+          background: #333333;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.rulingCard{
+  color: var(--color-white);
+  margin-bottom: 40px;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  height: 550px;
+  &::after{
+    position: absolute;
+    content: ' ';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
+    z-index: -1;
+  }
+  .content{
+    position: absolute;
+    bottom: 0;
+    padding: 0px 20px 0px 40px;
+  }
+  .title{
+    position: relative;
+    display: flex;
+    line-height: 1;
+    h1{
+      margin: 0;
+      line-height: 1;
+    }
+    mat-icon{
+      align-self: center;
+      text-align: center;
+      font-size: 1.2rem;
+      line-height: 1.2;
+      padding: 2px;
+      position: absolute;
+      left: -40px;
+      bottom: 5px;
+      background: var(--color-primmary);
+      &.secondary{
+        background: var(--color-secondary);
+      }
+    }
+  }
+  .date{
+    font-size: 0.75rem;
+    margin-bottom: 11px;
+  }
+  .description{
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+
+    .actions{
+      margin-bottom: 40px;
+      .vote-btns{
+        margin-right: 10px;
+        border-radius: 0;
+      }
+      .mat-stroked-button{
+        border-color: white;
+        border-radius: 0;
+        padding: 0px 22px;
+      }
+    }
+
+
+  .votes{
+    display: flex;
+    color: white;
+    font-size: 1.8125rem;
+    margin: 0px -20px 0px -40px;
+    .up, .down{
+      padding: 0px 10px;
+    }
+    .up{
+      background: rgba(var(--color-primmary-rgb), 0.7);
+    }
+    .down{
+      background: rgba(var(--color-secondary-rgb), 0.7);
+    }
+  }
+
+}
