@@ -57,12 +57,40 @@
 
 </section>
 
-<section class="previos-ruling">
+<section class="previous-ruling">
   <div class="container">
     <h1 class="font-light">Previous Rulings</h1>
-    <div class="row ruling-list">
-      <div class="col-6 ruling" *ngFor="let item of [1,2,3,4]">
-        {{item}}
+    <div class="ruling-list row">
+      <div class="col-6 rulingCard"
+           *ngFor="let item of items"
+           [ngStyle]="{'background' : 'url(' + item.imgUrl + ')'}"
+      >
+          <div class="content">
+            <div class="title">
+              <mat-icon [class.secondary]="item.votes.up < item.votes.down">{{item.votes.up < item.votes.down ? 'thumb_down' : 'thumb_up'}}</mat-icon>
+              <h1 class="font-regular">{{item.name}}</h1>
+            </div>
+            <div class="description font-light">{{item.description}}</div>
+            <div class="details">
+              <div class="actions">
+                <mat-button-toggle-group class="vote-btns" #group="matButtonToggleGroup">
+                  <mat-button-toggle class="btn btn-up" value="up"><mat-icon>thumb_up</mat-icon></mat-button-toggle>
+                  <mat-button-toggle class="btn btn-down"value="down"><mat-icon>thumb_down</mat-icon></mat-button-toggle>
+                </mat-button-toggle-group>
+                <button mat-stroked-button>Vote now</button>
+              </div>
+              <div class="info">
+                {{item.date | date}}
+                in {{item.category}}
+              </div>
+            </div>
+            <div class="votes font-light">
+              <div class="up" [ngStyle]="{ 'width': (item.votes.up / item.votes.total) * 100  + '%' }" >{{item.votes.up}}%</div>
+              <div class="down" [ngStyle]="{ 'width': (item.votes.down / item.votes.total) * 100  + '%' }">{{item.votes.down}}%</div>
+            </div>
+          </div>
+
+
       </div>
     </div>
 

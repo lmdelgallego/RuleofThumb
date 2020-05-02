@@ -8,6 +8,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing-module';
 import { HomeComponent } from './pages/home/home.component';
+import {MatButtonModule, MatButtonToggleModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { HomeComponent } from './pages/home/home.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonToggleModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
