@@ -1,3 +1,35 @@
 .flex{
   display: flex;
 }
+
+.vote-btns{
+  border: 1px solid transparent;
+  box-shadow: none;
+  .btn{
+    margin-right: 8px;
+    border: 2px solid transparent;
+    color: white;
+    &:last-of-type{
+      margin-right: 0;
+    }
+    &.mat-button-toggle-checked{
+      border-color: white;
+    }
+    &-up{
+      background: var(--color-primmary);
+    }
+    &-down{
+      background: var(--color-secondary);
+    }
+  }
+
+  .mat-button-toggle-label-content{
+    line-height: 0;
+    padding: 2px 5px;
+    .mat-icon{
+      font-size: 1.2rem;
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  }
+}

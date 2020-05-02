@@ -1,9 +1,8 @@
-
 <section class="main-ruling">
   <div class="container">
     <div class="row">
 
-      <div class="principal col-6">
+      <div class="col-6 principal ">
 
         <div class="principal-content">
           <h6 class="sub-title font-light">What’s your opinion on</h6>
@@ -39,19 +38,23 @@
 
 <section class="message font-light container">
   <div class="row">
-    <div class="message-content col-12">
+    <div class="col-12">
+      <div class="message-content">
+        <div class="title">
+          <h3 class="font-light">Speak out. Be heard.</h3>
+          <h1>Be counted</h1>
+        </div>
+        <div class="content">
+          Rule of Thumb is a crowd sourced court of public opinion where anyone and everyone can speak out and speak
+          freely.
+          It’s easy: You share your opinion, we analyze and put the data in a public report.
+        </div>
+        <div class="actions font-light">
+          <mat-icon>close</mat-icon>
+        </div>
+      </div>
 
-      <div class="title">
-        <h3 class="font-light">Speak out. Be heard.</h3>
-        <h1>Be counted</h1>
-      </div>
-      <div class="content" >
-        Rule of Thumb is a crowd sourced court of public opinion where anyone and everyone can speak out and speak freely.
-        It’s easy: You share your opinion, we analyze and put the data in a public report.
-      </div>
-      <div class="actions font-light">
-        <mat-icon>close</mat-icon>
-      </div>
+
     </div>
   </div>
 
@@ -59,45 +62,48 @@
 
 <section class="previous-ruling">
   <div class="container">
-    <h1 class="font-light">Previous Rulings</h1>
-    <div class="ruling-list row">
-      <div class="col-6 rulingCard"
-           *ngFor="let item of items"
-           [ngStyle]="{'background' : 'url(' + item.imgUrl + ')'}"
-      >
+    <div class="row">
+      <h1 class="col-12 font-light">Previous Rulings</h1>
+      <div class="ruling-list row">
+        <div class="col-6 rulingCard" *ngFor="let item of items"
+          [ngStyle]="{'background-image' : 'url(' + item.imgUrl + ')'}">
           <div class="content">
             <div class="title">
-              <mat-icon [class.secondary]="item.votes.up < item.votes.down">{{item.votes.up < item.votes.down ? 'thumb_down' : 'thumb_up'}}</mat-icon>
+              <mat-icon [class.secondary]="item.votes.up < item.votes.down">
+                {{item.votes.up < item.votes.down ? 'thumb_down' : 'thumb_up'}}</mat-icon>
               <h1 class="font-regular">{{item.name}}</h1>
             </div>
+            <div class="date"><span class="font-bold">{{item.date | date}}</span> in {{item.category}}</div>
             <div class="description font-light">{{item.description}}</div>
-            <div class="details">
-              <div class="actions">
-                <mat-button-toggle-group class="vote-btns" #group="matButtonToggleGroup">
-                  <mat-button-toggle class="btn btn-up" value="up"><mat-icon>thumb_up</mat-icon></mat-button-toggle>
-                  <mat-button-toggle class="btn btn-down"value="down"><mat-icon>thumb_down</mat-icon></mat-button-toggle>
-                </mat-button-toggle-group>
-                <button mat-stroked-button>Vote now</button>
-              </div>
-              <div class="info">
-                {{item.date | date}}
-                in {{item.category}}
-              </div>
+
+            <div class="actions">
+              <mat-button-toggle-group appearance="legacy" class="vote-btns" #group="matButtonToggleGroup">
+                <mat-button-toggle class="btn btn-up" value="up">
+                  <mat-icon>thumb_up</mat-icon>
+                </mat-button-toggle>
+                <mat-button-toggle class="btn btn-down" value="down">
+                  <mat-icon>thumb_down</mat-icon>
+                </mat-button-toggle>
+              </mat-button-toggle-group>
+              <button (click)="onVote(item, group.value)" mat-stroked-button>Vote now</button>
             </div>
             <div class="votes font-light">
-              <div class="up" [ngStyle]="{ 'width': (item.votes.up / item.votes.total) * 100  + '%' }" >{{item.votes.up}}%</div>
-              <div class="down" [ngStyle]="{ 'width': (item.votes.down / item.votes.total) * 100  + '%' }">{{item.votes.down}}%</div>
+              <div class="up" [ngStyle]="{ 'width': (item.votes.up / item.votes.total) * 100  + '%' }">
+                {{(item.votes.up / item.votes.total) | percent}}</div>
+              <div class="down" [ngStyle]="{ 'width': (item.votes.down / item.votes.total) * 100  + '%' }">
+                {{(item.votes.down / item.votes.total) | percent}}</div>
             </div>
           </div>
 
 
+        </div>
       </div>
-    </div>
 
-    <div class="add-name">
-      <div class="add-name-content">
-        <div class="message font-light">Is there anyone else you would want us to add?</div>
-        <button class="action font-regular">Submit a Name</button>
+      <div class="col-12 add-name">
+        <div class="add-name-content">
+          <div class="message font-light">Is there anyone else you would want us to add?</div>
+          <button class="action font-regular">Submit a Name</button>
+        </div>
       </div>
     </div>
   </div>

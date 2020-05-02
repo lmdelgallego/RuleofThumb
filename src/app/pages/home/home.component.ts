@@ -79,4 +79,15 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
   }
 
+  onVote(item: RulingEntity, vote) {
+    console.log(item, vote);
+    item.votes.total++;
+    if( vote === 'up') {
+      item.votes.up++;
+    }
+    if( vote === 'down') {
+      item.votes.down++;
+    }
+  }
+
 }

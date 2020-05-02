@@ -1,6 +1,7 @@
 section.main-ruling{
-  background-size: 100% auto;
-  background: url('/assets/img/principal-pope.jpg') no-repeat center center;
+  background: url('/assets/img/principal-pope.jpg');
+  background-size: cover;
+  background-position: center center;
   margin-bottom: 30px;
   padding-top: 110px;
   position: relative;
@@ -134,14 +135,14 @@ section.main-ruling{
 
 section.message{
   font-size: 0.93rem;
-  background-color: #ebebeb;
   .message-content{
+    background-color: #ebebeb;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 27px;
+    padding: 10px 27px;
     .title{
-      width: 38%;
+      width: 45%;
       h1, h3 {
         margin: 0;
         line-height: 1;
@@ -188,7 +189,8 @@ section.previous-ruling{
 .rulingCard{
   color: var(--color-white);
   margin-bottom: 40px;
-  background: red;
+  background-position: center;
+  background-size: cover;
   position: relative;
   z-index: 1;
   height: 550px;
@@ -211,7 +213,6 @@ section.previous-ruling{
     position: relative;
     display: flex;
     line-height: 1;
-    margin-bottom: 11px;
     h1{
       margin: 0;
       line-height: 1;
@@ -231,36 +232,29 @@ section.previous-ruling{
       }
     }
   }
+  .date{
+    font-size: 0.75rem;
+    margin-bottom: 11px;
+  }
   .description{
     line-height: 1;
     margin-bottom: 20px;
   }
 
-  .details{
+
     .actions{
+      margin-bottom: 40px;
       .vote-btns{
+        margin-right: 10px;
         border-radius: 0;
-        border: none;
-        .btn{
-          margin-right: 8px;
-          border: 2px solid transparent;
-          color: white;
-          &:last-of-type{
-            margin-right: 0;
-          }
-          &.mat-button-toggle-checked{
-            border-color: white;
-          }
-          &-up{
-            background: var(--color-primmary);
-          }
-          &-down{
-            background: var(--color-secondary);
-          }
-        }
+      }
+      .mat-stroked-button{
+        border-color: white;
+        border-radius: 0;
+        padding: 0px 22px;
       }
     }
-  }
+
 
   .votes{
     display: flex;

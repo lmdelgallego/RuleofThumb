@@ -1,6 +1,7 @@
 <header>
   <div class="container">
-    <div class="navBar flex">
+    <div class="row">
+      <div class="col-12 navBar flex">
       <a href="/" class="brand">
         Rule of Thumb.
       </a>
@@ -17,23 +18,26 @@
         </a>
       </div>
     </div>
+    </div>
   </div>
 </header>
 
 <router-outlet></router-outlet>
 
-<footer>
-  <div class="container flex">
-    <nav class="nav flex">
-      <a class="nav-link" href="#">Terms and Conditions</a>
-      <a class="nav-link" href="#">Privacy Policy</a>
-      <a class="disabled" href="#">Contact Us</a>
-    </nav>
-    <div class="socials flex">
-      <label>Folow Us</label>
-      <div class="socials-links">
-        <mat-icon svgIcon="iconFacebook"></mat-icon>
-        <mat-icon svgIcon="iconTwitter"></mat-icon>
+<footer class="container">
+  <div class="row">
+    <div class="col-12 flex">
+      <nav class="nav flex">
+        <a class="nav-link" href="#">Terms and Conditions</a>
+        <a class="nav-link" href="#">Privacy Policy</a>
+        <a class="disabled" href="#">Contact Us</a>
+      </nav>
+      <div class="socials flex">
+        <label>Folow Us</label>
+        <div class="socials-links">
+          <mat-icon svgIcon="iconFacebook"></mat-icon>
+          <mat-icon svgIcon="iconTwitter"></mat-icon>
+        </div>
       </div>
     </div>
   </div>
