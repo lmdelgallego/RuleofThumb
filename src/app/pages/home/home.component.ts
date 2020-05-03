@@ -5,7 +5,8 @@ import * as moment from 'moment/moment';
 import {Store} from '@ngrx/store';
 import {RulingState} from '../../store/reducers/ruling.reduces';
 import {getRulings} from '../../store/selectors/ruling.selectos';
-import {fetchDataRuling} from '../../store/actions/ruling.actions';
+import {fetchDataRuling, voteRuling} from '../../store/actions/ruling.actions';
+import {validate} from 'codelyzer/walkerFactory/walkerFn';
 
 
 @Component({
@@ -29,16 +30,10 @@ export class HomeComponent implements OnInit {
   }
 
   onVote(item: RulingEntity, vote) {
-    item.votes.total++;
-    if ( vote === 'up') {
-      item.votes.up++;
-    }
-    if ( vote === 'down') {
-      item.votes.down++;
-    }
+    this.store.dispatch(voteRuling({ rulingId: item.id, vote}));
   }
 
-  getRelativeDate(date: string): string {
+  getRelativeDate(date: Date): string {
     return moment(date, 'YYYYMMDD').fromNow();
   }
 

@@ -19,6 +19,7 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import * as fromRuling from './store/reducers/ruling.reduces';
 import {RulingEffects} from './store/effects/ruling.effects';
+import {clearState} from './store/meta.reducers';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,15 @@ import {RulingEffects} from './store/effects/ruling.effects';
     HttpClientModule,
     MatButtonToggleModule,
     MatButtonModule,
-    StoreModule.forRoot({ruling: fromRuling.reducer }),
+    StoreModule.forRoot(
+      {ruling: fromRuling.reducer },
+      {
+        metaReducers: [clearState],
+        runtimeChecks: {
+          strictStateImmutability: true,
+          strictActionImmutability: true
+        }
+      }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([RulingEffects])
   ],

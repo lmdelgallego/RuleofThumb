@@ -85,7 +85,7 @@
                   <mat-icon>thumb_down</mat-icon>
                 </mat-button-toggle>
               </mat-button-toggle-group>
-              <button (click)="onVote(item, group.value)" mat-stroked-button>Vote now</button>
+              <button (click)="onVote(item, group.value)" [disabled]="!group.value" mat-stroked-button>Vote now</button>
             </div>
             <div class="votes font-light">
               <div class="up" [ngStyle]="{ 'width': (item.votes.up / item.votes.total) * 100  + '%' }">

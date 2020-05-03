@@ -1,7 +1,8 @@
 export interface RulingEntity {
+  id: number;
   name: string;
   description: string;
-  date: Date;
+  date: string;
   category: string;
   imgUrl: string;
   votes: Votes;
