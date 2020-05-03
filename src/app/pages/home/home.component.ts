@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
   onVote(item: RulingEntity, vote) {
     if ( vote ) {
       this.store.dispatch(voteRuling({ rulingId: item.id, vote}));
-      const snackBarRef = this.snackBar.open('Thank you for voting!' );
+      this.snackBar.open('Thank you for voting!' );
     }
   }
 
