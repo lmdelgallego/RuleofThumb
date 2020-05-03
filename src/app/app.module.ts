@@ -13,6 +13,11 @@ import { HowItWorksComponent } from './pages/how-it-works/how-it-works.component
 import { PassTrialsComponent } from './pages/pass-trials/pass-trials.component';
 import { LogInComponent } from './pages/log-in/log-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import * as fromRuling from './store/reducers/ruling.reduces';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,10 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
     MatIconModule,
     HttpClientModule,
     MatButtonToggleModule,
-    MatButtonModule
+    MatButtonModule,
+    StoreModule.forRoot({ruling: fromRuling.reducer }),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]
