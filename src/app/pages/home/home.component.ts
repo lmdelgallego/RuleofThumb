@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { RulingEntity } from 'src/app/entites/ruling.entity';
-import { RulingService } from 'src/app/service/ruling/ruling.service';
 import { Observable } from 'rxjs';
 import * as moment from 'moment/moment';
+import {Store} from '@ngrx/store';
+import {RulingState} from '../../store/reducers/ruling.reduces';
+import {getRulings} from '../../store/selectors/ruling.selectos';
+import {fetchDataRuling} from '../../store/actions/ruling.actions';
 
 
 @Component({
@@ -14,14 +17,15 @@ export class HomeComponent implements OnInit {
 
   items$: Observable<RulingEntity[]>;
 
-  constructor( private rulingService: RulingService) { }
+  constructor( private store: Store<RulingState>) { }
 
   ngOnInit() {
     this.getRulings();
   }
 
   getRulings() {
-    this.items$ = this.rulingService.getRuling();
+    this.store.dispatch(fetchDataRuling());
+    this.items$ = this.store.select(getRulings);
   }
 
   onVote(item: RulingEntity, vote) {

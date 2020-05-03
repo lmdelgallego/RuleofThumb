@@ -18,6 +18,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import * as fromRuling from './store/reducers/ruling.reduces';
+import {RulingEffects} from './store/effects/ruling.effects';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import * as fromRuling from './store/reducers/ruling.reduces';
     MatButtonModule,
     StoreModule.forRoot({ruling: fromRuling.reducer }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([RulingEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]
