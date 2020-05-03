@@ -107,15 +107,13 @@ section.main-ruling{
       &:after {
         left: 100%;
         top: 50%;
-        border: solid transparent;
+        border: 10px solid transparent;
         content: " ";
         height: 0;
         width: 0;
         position: absolute;
         pointer-events: none;
-        border-color: transparent;
-        border-left-color: rgba(black, 0.15);
-        border-width: 10px;
+        border-left-color: rgba(black, 0.2);
         margin-top: -10px;
       }
     }
@@ -266,9 +264,17 @@ section.previous-ruling{
     }
     .up{
       background: rgba(var(--color-primmary-rgb), 0.7);
+      text-align: left;
+      mat-icon{
+        margin-right: 8px;
+      }
     }
     .down{
       background: rgba(var(--color-secondary-rgb), 0.7);
+      text-align: right;
+      mat-icon{
+        margin-left: 8px;
+      }
     }
   }
 
