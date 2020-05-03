@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RulingEntity } from 'src/app/entites/ruling.entity';
-import { RulingService } from 'src/app/service/ruling.service';
+import { RulingService } from 'src/app/service/ruling/ruling.service';
 import { Observable } from 'rxjs';
 import * as moment from 'moment/moment';
 
