@@ -3,8 +3,16 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.2.
 
 ## Implement
-
-NGRX
+  - ANGULAR
+    - Material
+  - NGRX
+    - Reducers
+    - Effects
+    - Selectors
+    - Actions
+  - Test - UnitTest
+    - Home Test
+    - Service Test ( ruling.service )
 
 ## Development server
 
