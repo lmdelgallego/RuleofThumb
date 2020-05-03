@@ -8,7 +8,7 @@ export class StorageService {
     localStorage.setItem(name, JSON.stringify(value));
   }
 
-  getLocalStorageItem(name: string) {
+  public getLocalStorageItem(name: string) {
     return JSON.parse(localStorage.getItem(name));
   }
 

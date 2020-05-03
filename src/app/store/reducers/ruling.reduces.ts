@@ -44,6 +44,7 @@ const featureReducer = createReducer(
       rulingObj.votes.down++;
     }
     const updateRulings = state.ruling.map( r => (r.id === rulingId ? rulingObj : r ));
+    localStorage.setItem('__appState__', JSON.stringify(updateRulings));
     return {
       ...state,
       ruling: updateRulings

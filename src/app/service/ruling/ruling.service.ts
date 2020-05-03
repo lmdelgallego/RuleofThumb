@@ -14,7 +14,4 @@ export class RulingService {
   getRuling(): Observable<RulingEntity[]> {
     return this.http.get<RulingEntity[]>('../../assets/data/data.json');
   }
-  saveRuling( rulingList: RulingEntity[]) {
-    this.localStore.setLocalStorageItem('rulingList', rulingList);
-  }
 }
