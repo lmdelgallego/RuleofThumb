@@ -261,7 +261,8 @@ section.previous-ruling{
     font-size: 1.8125rem;
     margin: 0px -20px 0px -40px;
     .up, .down{
-      padding: 0px 10px;
+      transition: 300ms all ease-in-out;
+      padding: 0 10px;
     }
     .up{
       background: rgba(var(--color-primmary-rgb), 0.7);

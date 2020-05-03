@@ -76,7 +76,7 @@
             <div class="date"><span class="font-bold">{{getRelativeDate(item.date)}}</span> in {{item.category}}</div>
             <div class="description font-light">{{item.description}}</div>
 
-            <div class="actions">
+            <div class="actions" >
               <mat-button-toggle-group appearance="legacy" class="vote-btns" #group="matButtonToggleGroup">
                 <mat-button-toggle class="btn btn-up" value="up">
                   <mat-icon>thumb_up</mat-icon>
@@ -85,8 +85,9 @@
                   <mat-icon>thumb_down</mat-icon>
                 </mat-button-toggle>
               </mat-button-toggle-group>
-              <button (click)="onVote(item, group.value)" [disabled]="!group.value" mat-stroked-button>Vote now</button>
+              <button (click)="onVote(item, group.value)" mat-stroked-button>Vote now</button>
             </div>
+
             <div class="votes font-light">
               <div class="up" [ngStyle]="{ 'width': (item.votes.up / item.votes.total) * 100  + '%' }">
                 {{(item.votes.up / item.votes.total) | percent}}</div>

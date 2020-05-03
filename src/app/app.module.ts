@@ -20,6 +20,7 @@ import { EffectsModule } from '@ngrx/effects';
 import * as fromRuling from './store/reducers/ruling.reduces';
 import {RulingEffects} from './store/effects/ruling.effects';
 import {clearState} from './store/meta.reducers';
+import {ToastrModule} from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,10 @@ import {clearState} from './store/meta.reducers';
         }
       }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    EffectsModule.forRoot([RulingEffects])
+    EffectsModule.forRoot([RulingEffects]),
+    ToastrModule.forRoot({
+      progressBar: true,
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
