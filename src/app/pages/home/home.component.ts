@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RulingEntity } from 'src/app/entites/ruling.entity';
+import { RulingService } from 'src/app/service/ruling.service';
+import { Observable } from 'rxjs';
+import * as moment from 'moment/moment';
 
 
 @Component({
@@ -9,11 +12,16 @@ import { RulingEntity } from 'src/app/entites/ruling.entity';
 })
 export class HomeComponent implements OnInit {
 
-  items: RulingEntity[];
+  items$: Observable<RulingEntity[]>;
 
-  constructor() { }
+  constructor( private rulingService: RulingService) { }
 
   ngOnInit() {
+    this.getRulings();
+  }
+
+  getRulings() {
+    this.items$ = this.rulingService.getRuling();
   }
 
   onVote(item: RulingEntity, vote) {
@@ -24,6 +32,10 @@ export class HomeComponent implements OnInit {
     if ( vote === 'down') {
       item.votes.down++;
     }
+  }
+
+  getRelativeDate(date: string): string {
+    return moment(date, 'YYYYMMDD').fromNow();
   }
 
 }
