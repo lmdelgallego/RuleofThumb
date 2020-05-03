@@ -1,19 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { RulingEntity } from 'src/app/entites/ruling.entity';
+import { Observable } from 'rxjs';
+import * as moment from 'moment/moment';
+import {Store} from '@ngrx/store';
+import {RulingState} from '../../store/reducers/ruling.reduces';
+import {getRulings} from '../../store/selectors/ruling.selectos';
+import {fetchDataRuling, voteRuling} from '../../store/actions/ruling.actions';
+import {MatSnackBar} from '@angular/material';
 
-interface RulingEntity {
-  name: string;
-  description: string;
-  date: Date;
-  category: string;
-  imgUrl: string;
-  votes: Votes;
-}
 
-interface Votes {
-  total: number;
-  up: number;
-  down: number;
-}
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -21,73 +16,28 @@ interface Votes {
 })
 export class HomeComponent implements OnInit {
 
-  items: RulingEntity[] =  [
-    {
-      name: 'Kanye West',
-      description: 'Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.',
-      date: new Date(),
-      category: 'Entertainment',
-      imgUrl: 'https://loremflickr.com/550/550/paris,boy/all?random=1',
-      votes: {
-        total: 100,
-        up: 64,
-        down: 36
-      }
-    },
+  items$: Observable<RulingEntity[]>;
 
-    {
-      name: 'Mark Zuckerberg',
-      description: 'Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.',
-      date: new Date(),
-      category: 'Business',
-      imgUrl: 'https://loremflickr.com/550/550/paris,boy/all?random=2',
-      votes: {
-        total: 100,
-        up: 36,
-        down: 64
-      }
-    },
-    {
-      name: 'Cristina Fernández de Kirchner',
-      description: 'Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.',
-      date: new Date(),
-      category: 'Politics',
-      imgUrl: 'https://loremflickr.com/550/550/paris,girl/all?random=1',
-      votes: {
-        total: 100,
-        up: 64,
-        down: 36
-      }
-    },
-
-    {
-      name: 'Malala Yousafzai',
-      description: 'Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.',
-      date: new Date(),
-      category: 'Entertainment',
-      imgUrl: 'https://loremflickr.com/550/550/paris,girl/all?random=2',
-      votes: {
-        total: 100,
-        up: 36,
-        down: 64
-      }
-    },
-  ];
-
-  constructor() { }
+  constructor( private store: Store<RulingState>, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
+    this.getRulings();
+  }
+
+  getRulings() {
+    this.store.dispatch(fetchDataRuling());
+    this.items$ = this.store.select(getRulings);
   }
 
   onVote(item: RulingEntity, vote) {
-    console.log(item, vote);
-    item.votes.total++;
-    if( vote === 'up') {
-      item.votes.up++;
+    if ( vote ) {
+      this.store.dispatch(voteRuling({ rulingId: item.id, vote}));
+      this.snackBar.open('Thank you for voting!' );
     }
-    if( vote === 'down') {
-      item.votes.down++;
-    }
+  }
+
+  getRelativeDate(date: string): string {
+    return moment(date, 'YYYYMMDD').fromNow();
   }
 
 }

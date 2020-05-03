@@ -3,7 +3,6 @@ section.main-ruling{
   background-size: cover;
   background-position: center center;
   margin-bottom: 30px;
-  padding-top: 110px;
   position: relative;
   z-index: 1;
   .principal{
@@ -108,15 +107,13 @@ section.main-ruling{
       &:after {
         left: 100%;
         top: 50%;
-        border: solid transparent;
+        border: 10px solid transparent;
         content: " ";
         height: 0;
         width: 0;
         position: absolute;
         pointer-events: none;
-        border-color: transparent;
-        border-left-color: rgba(black, 0.15);
-        border-width: 10px;
+        border-left-color: rgba(black, 0.2);
         margin-top: -10px;
       }
     }
@@ -262,13 +259,22 @@ section.previous-ruling{
     font-size: 1.8125rem;
     margin: 0px -20px 0px -40px;
     .up, .down{
-      padding: 0px 10px;
+      transition: 300ms all ease-in-out;
+      padding: 0 10px;
     }
     .up{
       background: rgba(var(--color-primmary-rgb), 0.7);
+      text-align: left;
+      mat-icon{
+        margin-right: 8px;
+      }
     }
     .down{
       background: rgba(var(--color-secondary-rgb), 0.7);
+      text-align: right;
+      mat-icon{
+        margin-left: 8px;
+      }
     }
   }
 

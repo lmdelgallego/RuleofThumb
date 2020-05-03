@@ -1,4 +1,3 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @import '~@angular/material/theming';
@@ -30,3 +29,5 @@ $RulesOfThumb-theme: mat-light-theme($RulesOfThumb-primary, $RulesOfThumb-accent
 @import'./sass/_variables';
 @import './sass/_simple-grid';
 @import './sass/_utils';
+
+
