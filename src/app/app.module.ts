@@ -8,7 +8,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing-module';
 import { HomeComponent } from './pages/home/home.component';
-import {MatButtonModule, MatButtonToggleModule} from '@angular/material';
+import {MatButtonModule, MatButtonToggleModule, MatSnackBarModule} from '@angular/material';
 import { HowItWorksComponent } from './pages/how-it-works/how-it-works.component';
 import { PassTrialsComponent } from './pages/pass-trials/pass-trials.component';
 import { LogInComponent } from './pages/log-in/log-in.component';
@@ -20,7 +20,6 @@ import { EffectsModule } from '@ngrx/effects';
 import * as fromRuling from './store/reducers/ruling.reduces';
 import {RulingEffects} from './store/effects/ruling.effects';
 import {clearState} from './store/meta.reducers';
-import {ToastrModule} from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -39,6 +38,7 @@ import {ToastrModule} from 'ngx-toastr';
     HttpClientModule,
     MatButtonToggleModule,
     MatButtonModule,
+    MatSnackBarModule,
     StoreModule.forRoot(
       {ruling: fromRuling.reducer },
       {
@@ -50,9 +50,6 @@ import {ToastrModule} from 'ngx-toastr';
       }),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([RulingEffects]),
-    ToastrModule.forRoot({
-      progressBar: true,
-    })
   ],
   providers: [],
   bootstrap: [AppComponent]

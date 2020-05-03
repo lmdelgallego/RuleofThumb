@@ -6,8 +6,7 @@ import {Store} from '@ngrx/store';
 import {RulingState} from '../../store/reducers/ruling.reduces';
 import {getRulings} from '../../store/selectors/ruling.selectos';
 import {fetchDataRuling, voteRuling} from '../../store/actions/ruling.actions';
-import {validate} from 'codelyzer/walkerFactory/walkerFn';
-import {ToastrService} from 'ngx-toastr';
+import {MatSnackBar} from '@angular/material';
 
 
 @Component({
@@ -19,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   items$: Observable<RulingEntity[]>;
 
-  constructor( private store: Store<RulingState>, private toastr: ToastrService) { }
+  constructor( private store: Store<RulingState>, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.getRulings();
@@ -33,7 +32,7 @@ export class HomeComponent implements OnInit {
   onVote(item: RulingEntity, vote) {
     if ( vote ) {
       this.store.dispatch(voteRuling({ rulingId: item.id, vote}));
-      this.toastr.success('Thank you for voting!' );
+      const snackBarRef = this.snackBar.open('Thank you for voting!' );
     }
   }
 
