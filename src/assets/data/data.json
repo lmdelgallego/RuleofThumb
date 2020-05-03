@@ -5,7 +5,7 @@
     "description": "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
     "date": "20200218",
     "category": "Entertainment",
-    "imgUrl": "https://loremflickr.com/550/550/paris,boy/all?random=1",
+    "imgUrl": "/assets/img/pics-kanye.jpg",
     "votes": {
       "total": 100,
       "up": 64,
@@ -19,7 +19,7 @@
     "description": "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
     "date": "20200218",
     "category": "Business",
-    "imgUrl": "https://loremflickr.com/550/550/paris,boy/all?random=2",
+    "imgUrl": "/assets/img/pics-mark.jpg",
     "votes": {
       "total": 100,
       "up": 36,
@@ -32,7 +32,7 @@
     "description": "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
     "date": "20200218",
     "category": "Politics",
-    "imgUrl": "https://loremflickr.com/550/550/paris,girl/all?random=1",
+    "imgUrl": "/assets/img/pics-cristina.jpg",
     "votes": {
       "total": 100,
       "up": 64,
@@ -46,7 +46,7 @@
     "description": "Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
     "date": "20200218",
     "category": "Entertainment",
-    "imgUrl": "https://loremflickr.com/550/550/paris,girl/all?random=2",
+    "imgUrl": "/assets/img/pics-malala.jpg",
     "votes": {
       "total": 100,
       "up": 36,
