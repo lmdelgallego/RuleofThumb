@@ -2,15 +2,15 @@
   <div class="container">
     <div class="row">
       <div class="col-12 navBar flex">
-      <a href="/" class="brand">
+      <a [routerLink]="['home']" class="brand">
         Rule of Thumb.
       </a>
       <div class="menu flex">
         <nav class="nav flex">
-          <a class="nav-link" href="#">Pass Trials</a>
-          <a class="nav-link" href="#">How It Works</a>
-          <div class="auth">
-            <a class="nav-link" href="#">Log In</a> / <a href="#">SignUp</a>
+          <a class="nav-link" [routerLink]="['pass-trials']">Pass Trials</a>
+          <a class="nav-link" [routerLink]="['how-it-works']">How It Works</a>
+          <div class="auth nav-link">
+            <a [routerLink]="['/login']">Log In</a> / <a [routerLink]="['/sign-up']">SignUp</a>
           </div>
         </nav>
         <a class="search" href="#">
