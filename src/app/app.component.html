@@ -5,12 +5,16 @@
       <a [routerLink]="['home']" class="brand">
         Rule of Thumb.
       </a>
-      <div class="menu flex">
+        <div class="show-menu" (click)="showMenu = true">
+          <mat-icon>menu</mat-icon>
+        </div>
+      <div class="menu flex" [class.show]="showMenu">
+        <div class="close-menu" (click)="showMenu = false"><mat-icon>close</mat-icon></div>
         <nav class="nav flex">
-          <a class="nav-link" [routerLink]="['pass-trials']">Pass Trials</a>
-          <a class="nav-link" [routerLink]="['how-it-works']">How It Works</a>
+          <a class="nav-link" (click)="showMenu = false" [routerLink]="['pass-trials']">Pass Trials</a>
+          <a class="nav-link" (click)="showMenu = false" [routerLink]="['how-it-works']">How It Works</a>
           <div class="auth nav-link">
-            <a [routerLink]="['/login']">Log In</a> / <a [routerLink]="['/sign-up']">SignUp</a>
+            <a [routerLink]="['/login']" (click)="showMenu = false">Log In</a> / <a [routerLink]="['/sign-up']" (click)="showMenu = false">SignUp</a>
           </div>
         </nav>
         <a class="search" href="#">
