@@ -119,4 +119,12 @@ footer{
       align-items: center;
     }
   }
+
+  footer{
+    .menu{
+      .nav,  a, mat-icon{
+        color: black;
+      }
+    }
+  }
 }
